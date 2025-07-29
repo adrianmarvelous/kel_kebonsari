@@ -11,21 +11,19 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <div class="p-3 m-3">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Cari sesuatu...">
-        </div>
-
-        <p class="text-center" style="margin-top: 100px;font-size:3rem">Kelurahan Kebonsari</p>
-        <h4 class="text-center">Pemerintah Kota Surabaya</h4>
-        
-        <div class="position-fixed bottom-0 start-0 end-0 bg-white p-3 shadow">
-            <div class="d-flex flex-column">
-                <button class="btn btn-primary mb-2">Pelayanan</button>
-                <button class="btn btn-primary">Informasi Umum</button>
-            </div>
-        </div>
-    </div>
+    <?php
+      if (@htmlentities($_GET['pages']) == "") {
+        include "view/home.php";
+      }elseif(htmlentities($_GET['pages']) == 'isi_data'){
+        include "view/isi_data.php";
+      }elseif(htmlentities($_GET['pages']) == 'pilih_kategori_pelayanan'){
+        include "controller/pelayanan.php";
+      }elseif(htmlentities($_GET['pages']) == 'pilih_layanan'){
+        include "controller/pelayanan.php";
+      }elseif(htmlentities($_GET['pages']) == 'detail_layanan'){
+        include "controller/pelayanan.php";
+      }
+    ?>
 
 
     <!-- Optional JavaScript; choose one of the two! -->
