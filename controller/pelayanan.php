@@ -55,11 +55,13 @@
 
         $nama = htmlentities($_SESSION['nama']);
         $alamat = htmlentities($_SESSION['alamat']);
-        $insert = $db->prepare("INSERT INTO data_user (id_data_user,nama, alamat,pelayanan) VALUES (:id_data_user,:nama, :alamat,:pelayanan)");
+        $created_at = date('Y-m-d H:i:s');
+        $insert = $db->prepare("INSERT INTO data_user (id_data_user,nama, alamat,pelayanan,created_at) VALUES (:id_data_user,:nama, :alamat,:pelayanan,:created_at)");
         $insert->bindParam(':id_data_user', $last_id);
         $insert->bindParam(':nama', $nama);
         $insert->bindParam(':alamat', $alamat);
         $insert->bindParam(':pelayanan', $id_layanan);
+        $insert->bindParam(':created_at', $created_at);
         $insert->execute();
 
         $layanan['detail'] = $detail;

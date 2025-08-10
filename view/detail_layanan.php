@@ -7,7 +7,7 @@
                     if(isset($layanan['video']) && $layanan['video'] != '') {
                 ?>
                     <iframe src="https://drive.google.com/file/d/<?= htmlentities($layanan['video']) ?>/preview" 
-                            width="640" height="480" allow="autoplay" allowfullscreen>
+                            width="auto" height="480" allow="autoplay" allowfullscreen>
                     </iframe>
                 <?php }?>
             </div>
